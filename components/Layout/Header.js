@@ -16,12 +16,10 @@ class Header extends React.Component {
   render() {
     return (
       <header className={`mdl-layout__header ${s.header}`} ref={node => (this.root = node)}>
-        <div className={`mdl-layout__header-row ${s.row}`}>
-          <Link className={`mdl-layout-title ${s.title}`} to="/">
-            Wavy
-          </Link>
-          <div className="mdl-layout-spacer"></div>
-          <Navigation />
+        <div className={`mdl-layout__header-row`}>
+          <h1 className={`mdl-layout-title ${s.title}`} >
+            FIND YOUR JOB
+          </h1>
         </div>
       </header>
     );

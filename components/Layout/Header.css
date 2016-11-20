@@ -1,20 +1,11 @@
-.row {
-  padding: 40px;
-}
-
 .title {
-  color: #fff;
+  color: #DF3A01;
   text-decoration: none;
+  font-size:500%;
 }
 
-@media screen and (max-width: 1024px) {
-
-  .header {
-    display: flex;
-  }
-
-  .row {
-    padding: 0 16px;
-  }
-
+.header {
+  display: flex;
+  background: white;
+  height:10%
 }
