@@ -4,10 +4,22 @@ import s from './styles.css';
 import { title, html } from './index.md';
 import FlatButton from 'material-ui/FlatButton';
 import SearchIcon from 'material-ui/svg-icons/action/search';
+import {
+  withGoogleMap,
+  GoogleMap,
+} from "react-google-maps";
 
 const style = {
   margin: 12,
 };
+
+const SimpleMapExampleGoogleMap = withGoogleMap(props => (
+  <GoogleMap
+    defaultZoom={8}
+    defaultCenter={{lat: -34.397, lng: 150.644}}
+  />
+));
+
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -45,7 +57,30 @@ class HomePage extends React.Component {
               console.log("statefield values recieve: "+this.state.value);
             }}
           />
-          </div>
+          <SimpleMapExampleGoogleMap
+
+            containerElement={
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 500,
+                right: 0,
+                bottom: 0,
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+              }}/>
+            }
+            mapElement={
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+              }}/>
+            }
+          />
+        </div>
 
       </Layout>
     );
