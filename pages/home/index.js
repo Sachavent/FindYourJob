@@ -9,10 +9,6 @@ import {
   GoogleMap,
 } from "react-google-maps";
 
-const style = {
-  margin: 12,
-};
-
 const SimpleMapExampleGoogleMap = withGoogleMap(props => (
   <GoogleMap
     defaultZoom={8}
@@ -40,46 +36,56 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout className={s.content}>
-        <div>
+        <div className="mdl-grid" style={{backgroundColor:'red'}}>
+          <div className="mdl-cell mdl-cell--2-col">
           <select value={this.state.value} onChange={this.handleChange}>
             <option value="A">Apple</option>
             <option value="B">Banana</option>
             <option value="C">Cranberry</option>
           </select>
-
+          </div>
+          <div className="mdl-cell mdl-cell--2-col">
           {/*
           OnTouchTap not working, so using Onclick method
           */}
           <FlatButton
             icon={<SearchIcon />}
-            style={style}
             onClick={()=> {
               console.log("statefield values recieve: "+this.state.value);
             }}
           />
-          <SimpleMapExampleGoogleMap
+          </div>
+        </div>
 
-            containerElement={
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 500,
-                right: 0,
-                bottom: 0,
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-              }}/>
-            }
-            mapElement={
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-              }}/>
-            }
-          />
+        <div className="demo-grid-2 mdl-grid">
+          <div className="mdl-cell mdl-cell--4-col">
+             liste items
+
+          </div>
+          <div className="mdl-cell mdl-cell--8-col">
+            <SimpleMapExampleGoogleMap
+              containerElement={
+                <div style={{
+                  position: 'relative',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  height: '70vh',
+                  width: '100%',
+                }}/>
+              }
+              mapElement={
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}/>
+              }
+            />
+          </div>
         </div>
 
       </Layout>
