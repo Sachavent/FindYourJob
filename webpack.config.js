@@ -12,11 +12,17 @@ const babelConfig = Object.assign({}, pkg.babel, {
   babelrc: false,
   cacheDirectory: useHMR,
 });
+var reactDomLibPath = path.join(__dirname, "./node_modules/react-dom/lib");
+var alias = {};
+["EventPluginHub", "EventConstants", "EventPluginUtils", "EventPropagators",
+ "SyntheticUIEvent", "CSSPropertyOperations", "ViewportMetrics"].forEach(function(filename){
+    alias["react/lib/"+filename] = path.join(__dirname, "./node_modules/react-dom/lib", filename);
+});
 
 // Webpack configuration (main.js => public/dist/main.{hash}.js)
 // http://webpack.github.io/docs/configuration.html
 const config = {
-
+resolve: {alias: alias},
   // The base directory for resolving the entry option
   context: __dirname,
 
