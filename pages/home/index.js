@@ -6,19 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-
-import {
-  withGoogleMap,
-  GoogleMap,
-} from "react-google-maps";
-
-const SimpleMapExampleGoogleMap = withGoogleMap(props => (
-  <GoogleMap
-    defaultZoom={8}
-    defaultCenter={{lat: -34.397, lng: 150.644}}
-  />
-));
-
+import GoogleMap from '../../components/GoogleMap/MyGoogleMap'
 
 class HomePage extends React.Component {
 
@@ -58,28 +46,7 @@ class HomePage extends React.Component {
 
           </div>
           <div className="mdl-cell mdl-cell--8-col">
-            <SimpleMapExampleGoogleMap
-              containerElement={
-                <div style={{
-                  position: 'relative',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  height: '70vh',
-                  width: '100%',
-                }}/>
-              }
-              mapElement={
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                }}/>
-              }
-            />
+            <GoogleMap/>
           </div>
         </div>
 
