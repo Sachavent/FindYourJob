@@ -31,6 +31,8 @@ class HomePage extends React.Component {
         <div className="mdl-grid" style={{backgroundColor:'grey'}}>
           <div className="mdl-cell mdl-cell--3-col">
             <SelectField value={this.state.value} onChange={this.handleChange}>
+              <MenuItem value={75001} primaryText="Paris, 75001" />
+              <MenuItem value={75002} primaryText="Paris, 75002" />
               <MenuItem value={75003} primaryText="Paris, 75003" />
               <MenuItem value={75004} primaryText="Paris, 75004" />
               <MenuItem value={75005} primaryText="Paris, 75005" />
