@@ -8,6 +8,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import GoogleMap from '../../components/MyGoogleMap'
 
+
 class HomePage extends React.Component {
 
   constructor(props) {
@@ -16,6 +17,13 @@ class HomePage extends React.Component {
   }
 
   handleChange = (event, index, value) => this.setState({value});
+
+  /*Getting Json Data before rendering the page */
+  componentWillMount() {
+    var data = require('./data.json');
+    var obj = data[1];
+    console.log("Name: " + obj.contact_email);
+  }
 
   render() {
     return (
