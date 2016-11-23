@@ -4,6 +4,9 @@ import s from './styles.css';
 import { title, html } from './index.md';
 import FlatButton from 'material-ui/FlatButton';
 import SearchIcon from 'material-ui/svg-icons/action/search';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
 import {
   withGoogleMap,
   GoogleMap,
@@ -18,36 +21,28 @@ const SimpleMapExampleGoogleMap = withGoogleMap(props => (
 
 
 class HomePage extends React.Component {
+
   constructor(props) {
     super(props);
-    this.state = {
-      value: "A"
-    };
-    // Bind needed to use "setState" in handleChange method
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {value: 1};
   }
 
-  // Method called on SelectField change
-  handleChange(event) {
-    console.log("index selectfield: "+event.target.value);
-    this.setState( {value:event.target.value})
-  }
+  handleChange = (event, index, value) => this.setState({value});
 
   render() {
     return (
       <Layout className={s.content}>
-        <div className="mdl-grid" style={{backgroundColor:'red'}}>
-          <div className="mdl-cell mdl-cell--2-col">
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="A">Apple</option>
-            <option value="B">Banana</option>
-            <option value="C">Cranberry</option>
-          </select>
+        <div className="mdl-grid" style={{backgroundColor:'grey'}}>
+          <div className="mdl-cell mdl-cell--3-col">
+            <SelectField value={this.state.value} onChange={this.handleChange}>
+              <MenuItem value={1} primaryText="Never" />
+              <MenuItem value={2} primaryText="Every Night" />
+              <MenuItem value={3} primaryText="Weeknights" />
+              <MenuItem value={4} primaryText="Weekends" />
+              <MenuItem value={5} primaryText="Weekly" />
+            </SelectField>
           </div>
           <div className="mdl-cell mdl-cell--2-col">
-          {/*
-          OnTouchTap not working, so using Onclick method
-          */}
           <FlatButton
             icon={<SearchIcon />}
             onClick={()=> {
