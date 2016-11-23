@@ -6,7 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import GoogleMap from '../../components/GoogleMap/MyGoogleMap'
+import GoogleMap from '../../components/MyGoogleMap'
 
 class HomePage extends React.Component {
 
