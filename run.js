@@ -7,7 +7,7 @@ const webpack = require('webpack');
 
 // TODO: Update configuration settings
 const config = {
-  title: 'Wavy',        // Your website title
+  title: 'Find Your Job',        // Your website title
   url: 'https://wavy.fr',          // Your website URL
   project: 'wavy-backoffice',      // Firebase project. See README.md -> How to Deploy
   trackingID: 'UA-XXXXX-Y',                 // Google Analytics Site's ID
