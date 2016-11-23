@@ -13,7 +13,7 @@ class HomePage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: 1};
+    this.state = {value: 75001};
   }
 
   handleChange = (event, index, value) => this.setState({value});
@@ -31,11 +31,24 @@ class HomePage extends React.Component {
         <div className="mdl-grid" style={{backgroundColor:'grey'}}>
           <div className="mdl-cell mdl-cell--3-col">
             <SelectField value={this.state.value} onChange={this.handleChange}>
-              <MenuItem value={1} primaryText="Never" />
-              <MenuItem value={2} primaryText="Every Night" />
-              <MenuItem value={3} primaryText="Weeknights" />
-              <MenuItem value={4} primaryText="Weekends" />
-              <MenuItem value={5} primaryText="Weekly" />
+              <MenuItem value={75003} primaryText="Paris, 75003" />
+              <MenuItem value={75004} primaryText="Paris, 75004" />
+              <MenuItem value={75005} primaryText="Paris, 75005" />
+              <MenuItem value={75006} primaryText="Paris, 75006" />
+              <MenuItem value={75007} primaryText="Paris, 75007" />
+              <MenuItem value={75008} primaryText="Paris, 75008" />
+              <MenuItem value={75009} primaryText="Paris, 75009" />
+              <MenuItem value={75010} primaryText="Paris, 75010" />
+              <MenuItem value={75011} primaryText="Paris, 75011" />
+              <MenuItem value={75012} primaryText="Paris, 75012" />
+              <MenuItem value={75013} primaryText="Paris, 75013" />
+              <MenuItem value={75014} primaryText="Paris, 75014" />
+              <MenuItem value={75015} primaryText="Paris, 75015" />
+              <MenuItem value={75016} primaryText="Paris, 75016" />
+              <MenuItem value={75017} primaryText="Paris, 75017" />
+              <MenuItem value={75018} primaryText="Paris, 75018" />
+              <MenuItem value={75019} primaryText="Paris, 75019" />
+              <MenuItem value={75020} primaryText="Paris, 75020" />
             </SelectField>
           </div>
           <div className="mdl-cell mdl-cell--2-col">
