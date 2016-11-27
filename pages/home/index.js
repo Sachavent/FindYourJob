@@ -6,14 +6,16 @@ import FlatButton from 'material-ui/FlatButton';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import GoogleMap from '../../components/MyGoogleMap'
-
+import GoogleMap from '../../components/MyGoogleMap';
+import ListItem from '../../components/ListItem';
 
 class HomePage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: 75001};
+    this.state = {value: 75001,
+      dataRecieve: [],
+    };
   }
 
   handleChange = (event, index, value) => this.setState({value});
@@ -21,8 +23,7 @@ class HomePage extends React.Component {
   /*Getting Json Data before rendering the page */
   componentWillMount() {
     var data = require('./data.json');
-    var obj = data[1];
-    console.log("Name: " + obj.contact_email);
+    this.setState( { dataRecieve:data});
   }
 
   render() {
@@ -66,7 +67,13 @@ class HomePage extends React.Component {
         <div className="demo-grid-2 mdl-grid">
           <div className="mdl-cell mdl-cell--4-col">
              liste items
-
+            <ListItem {...this.state}/>
+            {
+              this.state.dataRecieve.map(function(dataRecieve, i) {
+                if (dataRecieve.zipcode== "75001") {
+                  return <p key={'recherche index-' + i}>{dataRecieve.contact_email}</p>
+                }
+              })}
           </div>
           <div className="mdl-cell mdl-cell--8-col">
             <GoogleMap/>
@@ -78,5 +85,6 @@ class HomePage extends React.Component {
   }
 
 }
+
 
 export default HomePage;
