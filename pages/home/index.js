@@ -14,15 +14,15 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectfield1: 75001,
-      selectfield2: "Accounting",
+      selectfieldZipCode: 75001,
+      selectfieldDepartment: "Accounting",
       dataRecieve: [],
       buttonPress: false,
     };
   }
 
-  handleChangeSelectField1 = (event, index, selectfield1) => this.setState({selectfield1});
-  handleChangeSelectField2 = (event, index, selectfield2) => this.setState({selectfield2});
+  handleChangeSelectFieldZipCode = (event, index, selectfieldZipCode) => this.setState({selectfieldZipCode});
+  handleChangeSelectFieldDepartment = (event, index, selectfieldDepartment) => this.setState({selectfieldDepartment});
 
 
   /*Getting Json Data before rendering the page */
@@ -36,7 +36,7 @@ class HomePage extends React.Component {
       <Layout className={s.content}>
         <div className={`mdl-grid ${s.searchbar}`}>
           <div className="mdl-cell mdl-cell--3-col">
-            <SelectField value={this.state.selectfield1} onChange={this.handleChangeSelectField1}>
+            <SelectField value={this.state.selectfieldZipCode} onChange={this.handleChangeSelectFieldZipCode}>
               <MenuItem value={75001} primaryText="Paris, 75001"/>
               <MenuItem value={75002} primaryText="Paris, 75002"/>
               <MenuItem value={75003} primaryText="Paris, 75003"/>
@@ -60,7 +60,7 @@ class HomePage extends React.Component {
             </SelectField>
           </div>
           <div className="mdl-cell mdl-cell--3-col">
-            <SelectField value={this.state.selectfield2} onChange={this.handleChangeSelectField2}>
+            <SelectField value={this.state.selectfieldDepartment} onChange={this.handleChangeSelectFieldDepartment}>
               <MenuItem value={"Accounting"} primaryText="Accounting"/>
               <MenuItem value={"Marketing"} primaryText="Marketing"/>
             </SelectField>

@@ -10,8 +10,8 @@ class ListItem extends React.Component {
 
   render() {
 
-    var zipcode = this.props.selectfield1;
-    var departement = this.props.selectfield2;
+    var zipcode = this.props.selectfieldZipCode;
+    var departement = this.props.selectfieldDepartment;
     var buttonPress = this.props.buttonPress;
     var inputArray = [];
 
@@ -25,7 +25,12 @@ class ListItem extends React.Component {
     function printdata(dataRecieve, i) {
       if (inputArray[2] == true) {
         if (dataRecieve.zipcode == inputArray[0] && dataRecieve.department == inputArray[1]) {
-          return <p key={'recherche index-' + i}>{dataRecieve.contact_email}</p>
+          return <li style={{  padding: 15,
+            marginBottom: 15,
+            borderRadius: 5,
+            listStyle: 'none',
+            color:  'black',
+            backgroundColor: '#ecf0f1'}} key={'recherche index-' + i}>{dataRecieve.contact_email}</li>
         }
       }
     }
@@ -35,7 +40,6 @@ class ListItem extends React.Component {
         {
           /*passing inputArray as extra argument */
           this.props.dataRecieve.map(printdata, inputArray)}
-
       </div>
     );
   }
