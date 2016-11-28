@@ -14,12 +14,13 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 75001,
+      selectfield1: 75001,
       dataRecieve: [],
+      buttonPress: false,
     };
   }
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleChange = (event, index, selectfield1) => this.setState({selectfield1});
 
   /*Getting Json Data before rendering the page */
   componentWillMount() {
@@ -30,9 +31,9 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout className={s.content}>
-        <div className="mdl-grid" style={{backgroundColor: 'grey'}}>
+        <div className={`mdl-grid ${s.searchbar}`}>
           <div className="mdl-cell mdl-cell--3-col">
-            <SelectField value={this.state.value} onChange={this.handleChange}>
+            <SelectField value={this.state.selectfield1} onChange={this.handleChange}>
               <MenuItem value={75001} primaryText="Paris, 75001"/>
               <MenuItem value={75002} primaryText="Paris, 75002"/>
               <MenuItem value={75003} primaryText="Paris, 75003"/>
@@ -59,15 +60,17 @@ class HomePage extends React.Component {
             <FlatButton
               icon={<SearchIcon />}
               onClick={()=> {
-                console.log("statefield values recieve: " + this.state.value);
-              }}
+                this.setState({buttonPress:this.state.buttonPress=true});
+              }
+
+              }
             />
           </div>
         </div>
 
         <div className="demo-grid-2 mdl-grid">
           <div className="mdl-cell mdl-cell--4-col">
-            <ListItem {...this.state}/>
+            <ListItem {...this.state} />
           </div>
           <div className="mdl-cell mdl-cell--8-col">
             <GoogleMap/>

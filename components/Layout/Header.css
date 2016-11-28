@@ -1,5 +1,5 @@
 .title {
-  color: #DF3A01;
+  color: white;
   text-decoration: none;
   font-size:8vh;
   font-weight: bold;
@@ -8,7 +8,7 @@
 
 .header {
   display: flex;
-  background: white;
+  background: #DF3A01;
   height:8%
 }
 

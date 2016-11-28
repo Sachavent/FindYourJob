@@ -11,7 +11,7 @@ import s from './MyGoogleMap.css';
 const SimpleMapExampleGoogleMap = withGoogleMap(props => (
   <GoogleMap
     defaultZoom={8}
-    defaultCenter={{lat: -34.397, lng: 150.644}}
+    defaultCenter={{lat: 48.866667, lng: 2.333333}}
   />
 ));
 
