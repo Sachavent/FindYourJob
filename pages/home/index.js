@@ -15,12 +15,15 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       selectfield1: 75001,
+      selectfield2: "Accounting",
       dataRecieve: [],
       buttonPress: false,
     };
   }
 
-  handleChange = (event, index, selectfield1) => this.setState({selectfield1});
+  handleChangeSelectField1 = (event, index, selectfield1) => this.setState({selectfield1});
+  handleChangeSelectField2 = (event, index, selectfield2) => this.setState({selectfield2});
+
 
   /*Getting Json Data before rendering the page */
   componentWillMount() {
@@ -33,7 +36,7 @@ class HomePage extends React.Component {
       <Layout className={s.content}>
         <div className={`mdl-grid ${s.searchbar}`}>
           <div className="mdl-cell mdl-cell--3-col">
-            <SelectField value={this.state.selectfield1} onChange={this.handleChange}>
+            <SelectField value={this.state.selectfield1} onChange={this.handleChangeSelectField1}>
               <MenuItem value={75001} primaryText="Paris, 75001"/>
               <MenuItem value={75002} primaryText="Paris, 75002"/>
               <MenuItem value={75003} primaryText="Paris, 75003"/>
@@ -56,6 +59,12 @@ class HomePage extends React.Component {
               <MenuItem value={75020} primaryText="Paris, 75020"/>
             </SelectField>
           </div>
+          <div className="mdl-cell mdl-cell--3-col">
+            <SelectField value={this.state.selectfield2} onChange={this.handleChangeSelectField2}>
+              <MenuItem value={"Accounting"} primaryText="Accounting"/>
+              <MenuItem value={"Marketing"} primaryText="Marketing"/>
+            </SelectField>
+            </div>
           <div className="mdl-cell mdl-cell--2-col">
             <FlatButton
               icon={<SearchIcon />}

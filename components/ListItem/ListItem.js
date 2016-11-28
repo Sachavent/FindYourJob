@@ -11,7 +11,7 @@ class ListItem extends React.Component {
   render() {
 
     var zipcode = this.props.selectfield1;
-    var departement = "Accounting";
+    var departement = this.props.selectfield2;
     var buttonPress = this.props.buttonPress;
     var inputArray = [];
 
