@@ -26,7 +26,6 @@ class ListItem extends React.Component {
 
     /* Priting data after search */
     function printdata(dataRecieve, i) {
-
       if (dataRecieve.zipcode == inputArray[0] && dataRecieve.department == inputArray[1]) {
         numberResponseGot++;
         return <li className={`${s.list}`} key={'recherche index-' + i}> {dataRecieve.title} - {dataRecieve.company}
