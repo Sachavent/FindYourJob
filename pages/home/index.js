@@ -32,44 +32,38 @@ class HomePage extends React.Component {
   }
 
   render() {
+    /* Array with the selectfield values*/
+    var valuesSelectfieldZipCode = [75001, 75002, 75003, 75004, 75005, 75006, 75007, 75008, 75009, 75010, 75011, 75012, 75013, 75014, 75015, 75016, 75017, 75018, 75019, 75020];
+    var valuesSelectfieldDepartment = ["Accounting", "Marketing", "Business Development", "Services", "Human Resources", "Support", "Training", "Research and Development"];
+
     return (
       <Layout className={s.content}>
         <div className={`mdl-grid ${s.searchbar}`}>
+
+          {/* Zipcode Selectfield */}
           <div className="mdl-cell mdl-cell--3-col">
             <SelectField value={this.state.selectfieldZipCode} onChange={this.handleChangeSelectFieldZipCode}>
-              <MenuItem value={75001} primaryText="Paris, 75001"/>
-              <MenuItem value={75002} primaryText="Paris, 75002"/>
-              <MenuItem value={75003} primaryText="Paris, 75003"/>
-              <MenuItem value={75004} primaryText="Paris, 75004"/>
-              <MenuItem value={75005} primaryText="Paris, 75005"/>
-              <MenuItem value={75006} primaryText="Paris, 75006"/>
-              <MenuItem value={75007} primaryText="Paris, 75007"/>
-              <MenuItem value={75008} primaryText="Paris, 75008"/>
-              <MenuItem value={75009} primaryText="Paris, 75009"/>
-              <MenuItem value={75010} primaryText="Paris, 75010"/>
-              <MenuItem value={75011} primaryText="Paris, 75011"/>
-              <MenuItem value={75012} primaryText="Paris, 75012"/>
-              <MenuItem value={75013} primaryText="Paris, 75013"/>
-              <MenuItem value={75014} primaryText="Paris, 75014"/>
-              <MenuItem value={75015} primaryText="Paris, 75015"/>
-              <MenuItem value={75016} primaryText="Paris, 75016"/>
-              <MenuItem value={75017} primaryText="Paris, 75017"/>
-              <MenuItem value={75018} primaryText="Paris, 75018"/>
-              <MenuItem value={75019} primaryText="Paris, 75019"/>
-              <MenuItem value={75020} primaryText="Paris, 75020"/>
+              {valuesSelectfieldZipCode.map((zipcode, i) => (
+                <MenuItem key={i} value={zipcode} primaryText={"Paris, " + zipcode}/>
+              ))}
             </SelectField>
           </div>
+
+          {/* Department Selectfield */}
           <div className="mdl-cell mdl-cell--3-col">
             <SelectField value={this.state.selectfieldDepartment} onChange={this.handleChangeSelectFieldDepartment}>
-              <MenuItem value={"Accounting"} primaryText="Accounting"/>
-              <MenuItem value={"Marketing"} primaryText="Marketing"/>
+              {valuesSelectfieldDepartment.map((department, i) => (
+                <MenuItem key={i} value={department} primaryText={department}/>
+              ))}
             </SelectField>
-            </div>
+          </div>
+
+          {/* Searching button*/}
           <div className="mdl-cell mdl-cell--2-col">
             <FlatButton
               icon={<SearchIcon />}
               onClick={()=> {
-                this.setState({buttonPress:this.state.buttonPress=true});
+                this.setState({buttonPress: this.state.buttonPress = true});
               }
 
               }
@@ -77,10 +71,13 @@ class HomePage extends React.Component {
           </div>
         </div>
 
+        {/* List Item display*/}
         <div className="demo-grid-2 mdl-grid">
           <div className="mdl-cell mdl-cell--4-col">
             <ListItem {...this.state} />
           </div>
+
+          {/* Google Map component*/}
           <div className="mdl-cell mdl-cell--8-col">
             <GoogleMap/>
           </div>
